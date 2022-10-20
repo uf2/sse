@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Websocket socket.io</title>
+</head>
+<body>
+<h1>Websocket socket.io</h1>
+<div id="data"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.min.js"></script>
+<script>
+  const socket = io("ws://127.0.0.1:8000/", {});
+
+  const dataElem = document.getElementById("data");
+  socket.on('message', function(message) {
+    dataElem.innerText = `data: ${message}`;
+  });
+</script>
+</body>
+</html>
+
